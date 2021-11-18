@@ -80,5 +80,3 @@ do_install_examples(){
     cp -r ${S}/examples ${D}/opt/openFrameworks
 }
 
-addtask do_compile_examples after do_compile before do_package
-addtask do_install_examples after do_compile_examples before do_package
