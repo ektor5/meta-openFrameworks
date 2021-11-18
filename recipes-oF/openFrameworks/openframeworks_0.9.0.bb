@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/openframeworks/openFrameworks.git;protocol=https;tag
            file://0004-fix-arm-32bits.patch \
            "
 
-FILES_${PN} = "/opt/openFrameworks"
+FILES_${PN} = "/usr/share/openFrameworks"
 S = "${WORKDIR}/git"
 
 INSANE_SKIP_${PN} = "ldflags"
@@ -64,8 +64,11 @@ do_compile_examples(){
 }
 
 do_install(){
-    install -m 0755 -d ${D}/opt/openFrameworks/core
-    cp -r ${S}/libs/openFrameworksCompiled/lib/linux/obj/Release/libs/openFrameworks/* ${D}/opt/openFrameworks/core
+    install -m 0755 -d ${D}/usr/share/openFrameworks/libs/openFrameworksCompiled/project
+    cp -r ${S}/libs/openFrameworksCompiled/lib/linux/obj/Release/libs/ ${D}/usr/share/openFrameworks/
+    cp -r ${S}/libs/openFrameworksCompiled/project/Makefile ${D}/usr/share/openFrameworks/libs/openFrameworksCompiled/project
+    cp -r ${S}/libs/openFrameworksCompiled/project/makefileCommon ${D}/usr/share/openFrameworks/libs/openFrameworksCompiled/project
+    cp -r ${S}/libs/openFrameworksCompiled/project/linux ${D}/usr/share/openFrameworks/libs/openFrameworksCompiled/project
 }
 
 do_install_examples(){
