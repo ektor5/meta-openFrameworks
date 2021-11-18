@@ -16,7 +16,11 @@ S = "${WORKDIR}/git"
 INSANE_SKIP_${PN} = "ldflags"
 INSANE_SKIP_${PN}-dev = "ldflags"
 
-DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-omx gtk+3 freeglut alsa-lib libxmu libxxf86vm mesa libraw1394 libglu libdrm glew openal-soft libsndfile1 freeimage cairo freetype openssl pulseaudio opencv mesa assimp rtaudio boost ffmpeg mpg123 glfw poco tess2 kiss"
+DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good \ 
+	gstreamer1.0-plugins-bad gstreamer1.0-omx gtk+3 freeglut alsa-lib libxmu \
+	libxxf86vm mesa libraw1394 libglu libdrm glew openal-soft libsndfile1 freeimage \
+	cairo freetype openssl pulseaudio opencv mesa assimp rtaudio boost ffmpeg \
+	mpg123 glfw poco tess2 kiss" 
 
 inherit pkgconfig
 
@@ -24,9 +28,9 @@ PLATFORM_OS = "Linux"
 HOST_OS = "Linux"
 
 EXTRA_OEMAKE = "\
-                PLATFORM_ARCH=${TARGET_ARCH} \
-                RECIPE_SYSROOT=${RECIPE_SYSROOT} \
-                PROJECT_OPTIMIZATION_CFLAGS_RELEASE="" \
+        PLATFORM_ARCH=${TARGET_ARCH} \
+        RECIPE_SYSROOT=${RECIPE_SYSROOT} \
+        PROJECT_OPTIMIZATION_CFLAGS_RELEASE="" \
 "
 
 do_compile(){
